@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fristazo | Sodas Granizadas</title>
+<meta name="description" content="Fristazo, sodas granizadas llenas de sabor, color y diversión. Visítanos en la Feria Empresarial el 29 de octubre.">
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#050f33; --navy-2:#0a1d5a; --navy-3:#123089;
+  --lime:#c8ff1f; --cyan:#1fb6ff; --ice:#bfeaff; --mango:#f6a623; --chili:#8a3b12; --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#eaf3ff;background:var(--navy);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;line-height:1;letter-spacing:.02em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px;position:relative;z-index:2}
+section{position:relative;padding:90px 0}
+
+/* ---------- Fondo animado ---------- */
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  background:radial-gradient(ellipse at 20% 0%,#16409f 0%,transparent 55%),
+             radial-gradient(ellipse at 90% 60%,#0d3a8a 0%,transparent 50%),var(--navy)}
+.ice{position:absolute;opacity:.55;filter:drop-shadow(0 0 10px rgba(31,182,255,.7));animation:drift linear infinite}
+@keyframes drift{from{transform:translateY(110vh) rotate(0)}to{transform:translateY(-20vh) rotate(360deg)}}
+.drop{position:absolute;width:10px;height:14px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 35% 30%,#fff,var(--cyan));opacity:.6;animation:drift linear infinite}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(5,15,51,.82);backdrop-filter:blur(10px);border-bottom:3px solid var(--lime);box-shadow:0 4px 30px rgba(31,182,255,.25)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{width:52px;height:52px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--lime),0 0 18px rgba(200,255,31,.6)}
+.logo span{font-family:'Bangers';font-size:2rem;color:var(--lime);letter-spacing:.06em;text-shadow:2px 2px 0 var(--cyan);line-height:.9}
+.logo small{display:block;margin-top:3px;font-family:'Poppins';font-size:.6rem;color:var(--ice);letter-spacing:.25em;font-weight:600;text-shadow:none}
+nav ul{display:flex;gap:6px;list-style:none}
+nav a{display:block;padding:8px 16px;font-weight:600;font-size:.9rem;border-radius:30px;transition:.2s}
+nav a:hover{background:var(--lime);color:var(--navy);transform:rotate(-3deg) scale(1.08)}
+@media(max-width:760px){nav ul{display:none}}
+
+/* ---------- Botones ---------- */
+.btn{position:relative;display:inline-block;padding:16px 34px;font-family:'Bangers';font-size:1.5rem;letter-spacing:.06em;border-radius:10px;transition:.18s;transform:rotate(-2deg)}
+.btn:hover{transform:rotate(1deg) translateY(-4px) scale(1.05)}
+.btn-lime{background:var(--lime);color:var(--navy);box-shadow:0 7px 0 #7ea400,0 0 30px rgba(200,255,31,.55);animation:pulse 2s infinite}
+.btn-cyan{background:var(--cyan);color:var(--navy);box-shadow:0 7px 0 #0a73ab,0 0 30px rgba(31,182,255,.5)}
+.btn-line{border:3px solid var(--ice);color:var(--ice)}
+@keyframes pulse{50%{box-shadow:0 7px 0 #7ea400,0 0 50px rgba(200,255,31,.95)}}
+
+/* ---------- Hero ---------- */
+.hero{padding:50px 0 120px;min-height:calc(100vh - 68px);display:flex;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+.tag{display:inline-block;background:var(--cyan);color:var(--navy);font-weight:700;padding:6px 18px;border-radius:4px;transform:rotate(-3deg);margin-bottom:14px;font-size:.85rem;letter-spacing:.12em;box-shadow:4px 4px 0 var(--lime)}
+.hero h1{font-family:'Bangers';font-size:clamp(4.2rem,13vw,9.5rem);color:var(--lime);letter-spacing:.03em;line-height:.85;
+  -webkit-text-stroke:3px var(--navy);paint-order:stroke fill;
+  text-shadow:5px 5px 0 var(--cyan),9px 9px 0 rgba(31,182,255,.35),0 0 50px rgba(200,255,31,.55);
+  transform:rotate(-3deg);animation:wob 4s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(-1.5deg) scale(1.03)}}
+.sub{display:inline-block;background:var(--lime);color:var(--navy);font-family:'Bangers';font-size:clamp(1.3rem,3.2vw,2rem);padding:2px 20px;margin:12px 0 18px;transform:rotate(-2deg);clip-path:polygon(2% 0,100% 8%,98% 100%,0 92%);letter-spacing:.06em}
+.hero p.lead{max-width:470px;margin-bottom:30px;color:var(--ice);font-size:1.08rem}
+.cta{display:flex;gap:20px;flex-wrap:wrap}
+
+.stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px}
+.halo{position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(31,182,255,.55),rgba(31,182,255,0) 68%);animation:breathe 4s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.15);opacity:.8}}
+.hero-cup{position:relative;width:min(340px,70vw);animation:bob 4s ease-in-out infinite;filter:drop-shadow(0 25px 35px rgba(0,0,0,.5))}
+@keyframes bob{50%{transform:translateY(-18px) rotate(2deg)}}
+.hero-logo{position:relative;z-index:2;width:min(430px,86vw);aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 0 0 6px var(--lime),0 0 0 11px var(--navy),0 0 0 14px var(--cyan),0 0 70px rgba(31,182,255,.8),0 30px 50px rgba(0,0,0,.55);animation:bob 4s ease-in-out infinite}
+.hero-cup{position:absolute!important;z-index:3;width:120px!important;right:-4%;bottom:-2%;transform:rotate(10deg)}
+.splash{position:absolute;bottom:18px;width:130%;max-width:560px;z-index:1;filter:drop-shadow(0 0 14px rgba(31,182,255,.8))}
+.float{position:absolute;z-index:3;transition:transform .15s ease-out}
+.f1{top:2%;left:4%;width:86px}.f2{top:12%;right:0;width:112px}.f3{bottom:12%;left:-2%;width:100px}.f4{bottom:2%;right:6%;width:70px}
+.badge{position:absolute;z-index:4;top:6%;right:-2%;width:130px;height:130px;border-radius:50%;background:var(--lime);color:var(--navy);display:grid;place-items:center;text-align:center;font-family:'Bangers';line-height:.95;font-size:1.25rem;transform:rotate(14deg);box-shadow:0 0 0 5px var(--navy),0 0 0 8px var(--lime),0 0 40px rgba(200,255,31,.7);animation:spin 8s ease-in-out infinite}
+.badge b{display:block;font-size:2.6rem;font-weight:400}
+@keyframes spin{50%{transform:rotate(4deg) scale(1.08)}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;text-align:center}.hero p.lead{margin-inline:auto}.cta{justify-content:center}.stage{min-height:440px}}
+
+/* ---------- Marquee ---------- */
+.marquee{background:var(--lime);color:var(--navy);border-block:4px solid var(--navy);transform:rotate(-1.4deg) scale(1.03);overflow:hidden;position:relative;z-index:5;box-shadow:0 10px 40px rgba(200,255,31,.35)}
+.marquee div{display:flex;width:max-content;animation:run 22s linear infinite}
+.marquee span{font-family:'Bangers';font-size:2rem;padding:8px 26px;letter-spacing:.07em;white-space:nowrap}
+.marquee span::after{content:"❄";margin-left:52px;color:var(--cyan);-webkit-text-stroke:1px var(--navy)}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* ---------- Títulos ---------- */
+.title{text-align:center;margin-bottom:56px}
+.title h2{font-family:'Bangers';font-size:clamp(2.6rem,7vw,4.8rem);color:#fff;letter-spacing:.04em;text-shadow:4px 4px 0 var(--cyan)}
+.title h2 em{font-style:normal;color:var(--navy);background:var(--lime);padding:0 18px;display:inline-block;transform:rotate(-2deg);text-shadow:none;clip-path:polygon(1% 4%,100% 0,99% 96%,0 100%)}
+.title p{color:var(--ice);margin-top:14px}
+
+/* ---------- Feria ---------- */
+.feria{background:linear-gradient(135deg,rgba(18,48,137,.9),rgba(10,29,90,.9));text-align:center;clip-path:polygon(0 4%,100% 0,100% 96%,0 100%);padding:140px 0}
+.feria h2{font-family:'Bangers';font-size:clamp(3.2rem,10vw,7rem);color:#fff;letter-spacing:.04em;-webkit-text-stroke:2px var(--navy);paint-order:stroke fill;text-shadow:5px 5px 0 var(--cyan),0 0 40px rgba(31,182,255,.7)}
+.brush{display:inline-block;margin:10px 0;padding:8px 34px;font-family:'Bangers';color:var(--navy);font-size:clamp(1.8rem,5vw,3.2rem);letter-spacing:.05em;clip-path:polygon(0 12%,3% 0,98% 6%,100% 88%,96% 100%,2% 94%)}
+.brush.l{background:var(--lime);transform:rotate(-2deg)}
+.brush.c{background:var(--cyan);transform:rotate(1.5deg)}
+.feria p.t{max-width:620px;margin:24px auto 30px;font-size:1.12rem}
+.feria p.t b{color:var(--lime)}
+.count{display:flex;justify-content:center;gap:16px;margin-bottom:38px;flex-wrap:wrap}
+.count div{background:var(--navy);border:3px solid var(--cyan);border-radius:14px;padding:12px 20px;min-width:92px;box-shadow:0 0 22px rgba(31,182,255,.55),inset 0 0 14px rgba(31,182,255,.25)}
+.count b{display:block;font-family:'Bangers';font-size:2.8rem;color:var(--lime);font-weight:400;line-height:1}
+.count small{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ice)}
+
+/* ---------- Sabores ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px}
+.card{position:relative;padding:70px 20px 28px;text-align:center;border-radius:22px;background:linear-gradient(160deg,var(--navy-3),var(--navy-2));border:3px solid rgba(31,182,255,.5);transition:.25s;margin-top:70px;transform-style:preserve-3d}
+.card::before{content:"";position:absolute;inset:-3px;border-radius:22px;background:conic-gradient(from 0deg,var(--lime),var(--cyan),var(--lime));z-index:-1;opacity:0;transition:.25s}
+.card:hover{transform:translateY(-12px) rotate(-1.5deg);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.card:hover::before{opacity:1}
+.card .cupmini{position:absolute;left:50%;top:-84px;width:120px;transform:translateX(-50%);transition:.3s;filter:drop-shadow(0 12px 14px rgba(0,0,0,.45))}
+.card:hover .cupmini{transform:translateX(-50%) translateY(-10px) rotate(6deg) scale(1.1)}
+.card h3{font-family:'Bangers';font-size:1.9rem;letter-spacing:.05em;color:#fff;margin-bottom:8px}
+.card p{font-size:.92rem;color:var(--ice)}
+.chip{display:inline-block;margin-top:14px;background:var(--lime);color:var(--navy);font-family:'Bangers';letter-spacing:.06em;padding:2px 16px;border-radius:30px;transform:rotate(-3deg)}
+
+/* ---------- Producto ---------- */
+.product{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.poster{position:relative;max-width:440px;justify-self:center}
+.poster img{width:100%;display:block;border-radius:24px;border:4px solid var(--lime);box-shadow:0 0 0 8px var(--navy),0 0 0 11px var(--cyan),0 0 70px rgba(31,182,255,.6);transform:rotate(-2.5deg);transition:.3s}
+.poster:hover img{transform:rotate(0) scale(1.03)}
+.price{position:absolute;right:-22px;bottom:34px;background:var(--lime);color:var(--navy);font-family:'Bangers';font-size:2.8rem;line-height:.95;padding:10px 24px 12px;text-align:center;transform:rotate(7deg);clip-path:polygon(0 10%,4% 0,98% 6%,100% 92%,95% 100%,2% 96%);box-shadow:0 0 40px rgba(200,255,31,.8);animation:spin 3s ease-in-out infinite}
+.price small{display:block;font-size:1.1rem;letter-spacing:.15em}
+.info h3{font-family:'Bangers';font-size:clamp(2.8rem,7vw,5rem);color:var(--lime);text-shadow:4px 4px 0 var(--cyan);letter-spacing:.04em;line-height:.95;margin-bottom:10px}
+.boom{font-weight:700;color:#fff;margin-bottom:22px;font-size:1.1rem}
+.ing{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.ing li{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--navy-3),var(--navy-2));border:2px solid rgba(31,182,255,.5);border-radius:14px;padding:12px 14px;transition:.2s}
+.ing li:hover{border-color:var(--lime);transform:translateY(-4px) rotate(-1deg)}
+.ing li>span{font-size:1.9rem}
+.ing b{display:block;font-size:.92rem;color:#fff;line-height:1.2}
+.ing div{font-size:.8rem;color:var(--ice)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.chips span{background:var(--lime);color:var(--navy);font-family:'Bangers';letter-spacing:.05em;padding:3px 16px;border-radius:30px;transform:rotate(-2deg)}
+.chips span:nth-child(even){background:var(--cyan);transform:rotate(2deg)}
+@media(max-width:860px){.product{grid-template-columns:1fr}.info{text-align:center}.chips{justify-content:center}.price{right:0}}
+@media(max-width:480px){.ing{grid-template-columns:1fr;text-align:left}}
+
+/* ---------- Pasos ---------- */
+.steps{background:rgba(5,15,51,.55)}
+.steprow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;counter-reset:s}
+.step{text-align:center;padding:30px 18px;border-radius:20px;border:3px dashed var(--cyan);background:rgba(18,48,137,.4);position:relative;counter-increment:s}
+.step::before{content:counter(s);position:absolute;top:-26px;left:50%;transform:translateX(-50%) rotate(-6deg);width:52px;height:52px;border-radius:50%;background:var(--lime);color:var(--navy);display:grid;place-items:center;font-family:'Bangers';font-size:1.9rem;box-shadow:0 0 20px rgba(200,255,31,.7)}
+.step .em{font-size:3rem;display:block;margin-bottom:6px;animation:bob 3s ease-in-out infinite}
+.step h3{font-family:'Bangers';font-size:1.6rem;color:var(--lime);letter-spacing:.05em}
+.step p{font-size:.9rem;color:var(--ice)}
+
+/* ---------- Nosotros ---------- */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about h2{font-family:'Bangers';font-size:clamp(2.6rem,6vw,4.4rem);color:var(--lime);text-shadow:4px 4px 0 var(--cyan);margin-bottom:18px;letter-spacing:.04em}
+.about p+p{margin-top:14px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.stats div{background:linear-gradient(135deg,var(--navy-3),var(--navy-2));border:3px solid var(--cyan);padding:24px 14px;border-radius:18px;text-align:center;transition:.2s}
+.stats div:nth-child(even){border-color:var(--lime);transform:translateY(14px)}
+.stats div:hover{transform:scale(1.06) rotate(-2deg)}
+.stats b{font-family:'Bangers';font-weight:400;font-size:3rem;color:var(--lime);display:block;line-height:1}
+@media(max-width:800px){.about .wrap{grid-template-columns:1fr}}
+
+.place{display:inline-block;margin-top:14px;background:var(--navy);border:3px solid var(--lime);border-radius:40px;padding:8px 24px;font-weight:600;box-shadow:0 0 28px rgba(200,255,31,.4)}
+.place b{color:var(--lime)}
+
+/* ---------- Contacto ---------- */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;max-width:900px;margin:0 auto 40px}
+.ccard{display:block;text-align:center;padding:24px 16px;border-radius:18px;background:linear-gradient(135deg,var(--navy-3),var(--navy-2));border:3px solid var(--cyan);transition:.2s;word-break:break-word}
+.ccard span{font-size:2.4rem;display:block}
+.ccard b{display:block;font-family:'Bangers';font-size:1.7rem;letter-spacing:.05em;color:var(--lime);font-weight:400}
+.ccard:hover{border-color:var(--lime);transform:translateY(-6px) rotate(-1.5deg);box-shadow:0 0 30px rgba(200,255,31,.4)}
+.wa{position:fixed;right:18px;bottom:18px;z-index:60;width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:1.9rem;box-shadow:0 0 0 4px var(--navy),0 0 30px rgba(37,211,102,.8);animation:pulse 2s infinite;transition:.2s}
+.wa:hover{transform:scale(1.12) rotate(-8deg)}
+.contact{background:linear-gradient(180deg,transparent,rgba(10,29,90,.9))}
+form{max-width:580px;margin:0 auto;display:grid;gap:16px;padding:34px;border-radius:24px;background:rgba(5,15,51,.75);border:3px solid var(--lime);box-shadow:0 0 50px rgba(200,255,31,.25)}
+input,textarea{width:100%;padding:15px 18px;border-radius:12px;border:3px solid var(--cyan);background:var(--navy);color:#fff;font:inherit;transition:.2s}
+input:focus,textarea:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 4px rgba(200,255,31,.3)}
+form button{border:0;cursor:pointer;justify-self:start}
+#msg{color:var(--lime);font-weight:600;min-height:1.4em}
+footer{position:relative;z-index:2;text-align:center;padding:34px 16px;font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ice);border-top:3px solid var(--lime);background:var(--navy)}
+footer b{color:var(--lime)}
+
+/* ---------- Pantalla de carga ---------- */
+body.loading{overflow:hidden}
+#loader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#16409f,var(--navy) 70%);transition:opacity .6s,visibility .6s;animation:lfail .01s 6s forwards}
+#loader.hide{opacity:0;visibility:hidden}
+@keyframes lfail{to{opacity:0;visibility:hidden}}
+.lw{text-align:center}
+.lw svg{width:150px;filter:drop-shadow(0 0 25px rgba(31,182,255,.8))}
+.lq{animation:lfill 1.8s ease-in-out forwards}
+@keyframes lfill{to{transform:translateY(-185px)}}
+.lb{fill:#fff;opacity:.7;animation:lrise 1.2s ease-in infinite}
+.lb:nth-of-type(2){animation-delay:.4s}.lb:nth-of-type(3){animation-delay:.8s}
+@keyframes lrise{from{transform:translateY(0);opacity:.8}to{transform:translateY(-120px);opacity:0}}
+.lt{font-family:'Bangers';font-size:3rem;color:var(--lime);letter-spacing:.08em;text-shadow:3px 3px 0 var(--cyan);margin-top:6px;animation:wob 2s ease-in-out infinite}
+.lp{font-family:'Bangers';letter-spacing:.2em;color:var(--ice);font-size:1.3rem}
+
+/* ---------- Vaso 3D ---------- */
+.viewer-box{position:relative;max-width:760px;height:560px;margin:0 auto;border-radius:30px;border:4px solid var(--lime);background:radial-gradient(circle at 50% 55%,rgba(31,182,255,.45),rgba(5,15,51,.85) 70%);box-shadow:0 0 0 8px var(--navy),0 0 0 11px var(--cyan),0 0 70px rgba(31,182,255,.5);overflow:hidden}
+#cup3d{width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+.hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);background:var(--lime);color:var(--navy);font-family:'Bangers';letter-spacing:.08em;font-size:1.2rem;padding:2px 20px;border-radius:30px;pointer-events:none;animation:pulse 2s infinite;transition:opacity .4s}
+.hint.off{opacity:0}
+@media(max-width:600px){.viewer-box{height:440px}}
+
+/* ---------- Mascota ---------- */
+.mascot{position:fixed;left:14px;bottom:14px;z-index:60;width:92px;height:92px;cursor:pointer;transform:translateY(160px);transition:transform .7s cubic-bezier(.2,1.5,.4,1)}
+.mascot.show{transform:none}
+.bear{width:100%;height:100%;border-radius:50%;background:url(logo.jpg) center/cover;border:4px solid var(--lime);box-shadow:0 0 0 3px var(--navy),0 0 28px rgba(200,255,31,.7);transition:transform .12s ease-out;animation:bob 3.5s ease-in-out infinite}
+.mascot.wave .bear{animation:wave .8s ease-in-out}
+@keyframes wave{20%{transform:rotate(-18deg) scale(1.15)}40%{transform:rotate(16deg) scale(1.15)}60%{transform:rotate(-12deg) scale(1.1)}80%{transform:rotate(8deg)}}
+.say{position:absolute;left:108px;bottom:38px;width:max-content;max-width:200px;background:var(--lime);color:var(--navy);font-family:'Bangers';font-size:1.3rem;letter-spacing:.04em;line-height:1.1;padding:8px 16px;border-radius:16px;box-shadow:0 0 24px rgba(200,255,31,.6);opacity:0;transform:scale(.6) translateX(-20px);transform-origin:left bottom;transition:.35s cubic-bezier(.2,1.5,.4,1);pointer-events:none}
+.say::before{content:"";position:absolute;left:-12px;bottom:14px;border:8px solid transparent;border-right:12px solid var(--lime);border-left:0}
+.say.on{opacity:1;transform:none}
+@media(max-width:600px){.mascot{width:66px;height:66px}.say{left:76px;font-size:1.05rem;max-width:150px}}
+
+/* ---------- Botón de sonido ---------- */
+.snd{position:fixed;right:24px;bottom:94px;z-index:60;width:48px;height:48px;border-radius:50%;border:3px solid var(--cyan);background:var(--navy);color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 0 18px rgba(31,182,255,.6);transition:.2s}
+.snd:hover{transform:scale(1.12) rotate(-8deg);border-color:var(--lime)}
+
+/* ---------- Reveal ---------- */
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#bar{position:fixed;top:0;left:0;height:5px;width:0;z-index:70;background:linear-gradient(90deg,var(--lime),var(--cyan));box-shadow:0 0 14px var(--lime)}
+.logo3d{position:relative;z-index:2;transform-style:preserve-3d;transition:transform .15s ease-out;will-change:transform}
+.pop{position:fixed;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,var(--cyan));pointer-events:none;z-index:99;animation:pop .85s ease-out forwards}
+.pop.l{background:radial-gradient(circle at 30% 30%,#fff,var(--lime))}
+@keyframes pop{to{transform:translate(var(--dx),var(--dy)) scale(0);opacity:0}}
+.rv{opacity:0;transform:perspective(900px) rotateX(30deg) translateY(60px) scale(.93);transform-origin:50% 100%;transition:opacity .7s,transform .7s cubic-bezier(.2,.9,.3,1.3)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- ========== Símbolos reutilizables ========== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".25" stop-color="#fff" stop-opacity="0"/><stop offset=".8" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>
+    <linearGradient id="gi" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".5" stop-color="#9fe0ff" stop-opacity=".55"/><stop offset="1" stop-color="#1fb6ff" stop-opacity=".5"/></linearGradient>
+
+    <!-- Hielo -->
+    <symbol id="cube" viewBox="0 0 100 100">
+      <polygon points="50,4 92,28 92,72 50,96 8,72 8,28" fill="url(#gi)" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/>
+      <polyline points="8,28 50,52 92,28" fill="none" stroke="#fff" stroke-width="2" opacity=".85"/>
+      <line x1="50" y1="52" x2="50" y2="96" stroke="#fff" stroke-width="2" opacity=".85"/>
+      <polygon points="50,4 92,28 50,52 8,28" fill="#fff" opacity=".35"/>
+    </symbol>
+
+    <!-- Vaso: el color del líquido viene de currentColor -->
+    <symbol id="cup" viewBox="0 0 200 290">
+      <line x1="104" y1="6" x2="100" y2="78" stroke="#f3e3b5" stroke-width="5" stroke-linecap="round"/>
+      <path d="M40 78 Q100 4 160 78 Z" fill="#6fe3c1"/>
+      <path d="M40 78 Q100 4 160 78" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="7 6"/>
+      <path d="M100 78 L100 20 M100 78 L66 34 M100 78 L134 34" stroke="#fff" stroke-width="1.5" opacity=".6"/>
+      <circle cx="72" cy="94" r="13" fill="#d7263d"/><circle cx="98" cy="88" r="13" fill="#1b7a2e"/>
+      <circle cx="126" cy="94" r="13" fill="#1d1d1d"/><circle cx="112" cy="104" r="11" fill="#8a5a1a"/><circle cx="84" cy="106" r="10" fill="#e9c46a"/>
+      <g fill="#fff" opacity=".7"><circle cx="68" cy="89" r="3"/><circle cx="94" cy="83" r="3"/><circle cx="122" cy="89" r="3"/></g>
+      <path d="M26 104 H174 L155 266 Q153 280 140 280 H60 Q47 280 45 266 Z" fill="currentColor"/>
+      <path d="M26 104 H174 L172 126 H28 Z" fill="#8a3b12"/>
+      <g fill="#3b1405" opacity=".8"><circle cx="40" cy="112" r="2"/><circle cx="64" cy="118" r="2"/><circle cx="90" cy="111" r="2"/><circle cx="118" cy="118" r="2"/><circle cx="146" cy="111" r="2"/><circle cx="162" cy="119" r="2"/></g>
+      <path d="M26 104 H174 L155 266 Q153 280 140 280 H60 Q47 280 45 266 Z" fill="url(#gl)"/>
+      <path d="M32 150 Q100 132 168 152 L158 262 H44 Z" fill="#fff" opacity=".18"/>
+      <g fill="#fff" opacity=".65"><circle cx="62" cy="178" r="3.5"/><circle cx="108" cy="210" r="4.5"/><circle cx="134" cy="170" r="3"/><circle cx="82" cy="244" r="3"/><circle cx="140" cy="236" r="3.5"/><circle cx="76" cy="206" r="2.5"/></g>
+    </symbol>
+
+    <!-- Salpicadura -->
+    <symbol id="splash" viewBox="0 0 600 220">
+      <path d="M0 220 C40 120 70 60 60 10 C100 70 120 110 140 150 C150 70 180 40 200 0 C215 80 240 120 270 150 C290 90 310 70 300 20 C340 80 350 120 380 150 C400 100 430 70 450 30 C455 90 480 120 500 150 C520 110 550 80 560 40 C575 100 590 160 600 220 Z" fill="url(#gi)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+      <g fill="#bfeaff" stroke="#fff" stroke-width="2"><circle cx="30" cy="40" r="9"/><circle cx="560" cy="16" r="8"/><circle cx="230" cy="12" r="7"/><circle cx="420" cy="8" r="9"/><circle cx="110" cy="14" r="6"/></g>
+    </symbol>
+
+    <symbol id="bolt" viewBox="0 0 40 70"><polygon points="24,0 4,38 18,38 10,70 38,28 22,28" fill="#c8ff1f" stroke="#050f33" stroke-width="3" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<div id="loader">
+  <div class="lw">
+    <svg viewBox="0 0 200 260" aria-hidden="true">
+      <defs><clipPath id="lc"><path d="M30 50 H170 L152 236 Q150 248 138 248 H62 Q50 248 48 236 Z"/></clipPath></defs>
+      <line x1="104" y1="6" x2="100" y2="50" stroke="#c8ff1f" stroke-width="7" stroke-linecap="round"/>
+      <g clip-path="url(#lc)">
+        <rect x="0" y="0" width="200" height="260" fill="rgba(191,234,255,.12)"/>
+        <rect class="lq" x="0" y="250" width="200" height="220" fill="#f6a623"/>
+        <circle class="lb" cx="80" cy="240" r="6"/><circle class="lb" cx="115" cy="240" r="8"/><circle class="lb" cx="98" cy="240" r="5"/>
+      </g>
+      <path d="M30 50 H170 L152 236 Q150 248 138 248 H62 Q50 248 48 236 Z" fill="none" stroke="#c8ff1f" stroke-width="6" stroke-linejoin="round"/>
+    </svg>
+    <div class="lt">FRISTAZO</div>
+    <div class="lp" id="lp">0%</div>
+  </div>
+</div>
+<script>
+(function(){
+  const ld=document.getElementById('loader'), lp=document.getElementById('lp');
+  document.body.classList.add('loading');
+  const t0=performance.now(), MIN=1900;
+  let loaded=document.readyState==='complete';
+  addEventListener('load',()=>{loaded=true});
+  function done(){
+    ld.classList.add('hide'); document.body.classList.remove('loading');
+    setTimeout(()=>{ld.remove();document.dispatchEvent(new Event('fristazo:ready'))},650);
+  }
+  (function step(){
+    const p=Math.min(1,(performance.now()-t0)/MIN);
+    lp.textContent=Math.round(p*100)+'%';
+    if(p<1||!loaded){ if(p>=1&&performance.now()-t0>5000){done();return} requestAnimationFrame(step); } else done();
+  })();
+})();
+</script>
+<div id="bar"></div>
+<div id="fx"></div>
+<canvas id="gl"></canvas>
+
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="logo"><img src="logo.jpg" alt="Logo Fristazo"><span>FRISTAZO<small>SODAS GRANIZADAS</small></span></a>
+    <nav><ul>
+      <li><a href="#feria">Feria</a></li>
+      <li><a href="#sabores">Sabores</a></li>
+      <li><a href="#vaso3d">Vaso 3D</a></li>
+      <li><a href="#como">Cómo es</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <span class="tag">❄ ¡BIEN FRÍA, BIEN CHIDA!</span>
+      <h1>Fristazo</h1><br>
+      <span class="sub">SODAS GRANIZADAS</span>
+      <p class="lead">Maracuyá y lulo, trozos de mango, bolitas explosivas y un borde de chamoy y tajín. Solo $5.000.</p>
+      <div class="cta">
+        <a href="#feria" class="btn btn-lime">¡Ven y pruébala!</a>
+        <a href="#sabores" class="btn btn-line">Ver sabores</a>
+      </div>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="halo"></div>
+      <svg class="splash" viewBox="0 0 600 220"><use href="#splash"/></svg>
+      <div class="logo3d" id="logo3d">
+        <img class="hero-logo" src="logo.jpg" alt="Fristazo Sodas Granizadas: oso polar con una soda granizada">
+        <svg class="hero-cup" viewBox="0 0 200 290" style="color:#f6a623"><use href="#cup"/></svg>
+      </div>
+      <svg class="float f1" data-s="30" viewBox="0 0 100 100"><use href="#cube"/></svg>
+      <svg class="float f2" data-s="-20" viewBox="0 0 100 100"><use href="#cube"/></svg>
+      <svg class="float f3" data-s="-40" viewBox="0 0 100 100"><use href="#cube"/></svg>
+      <svg class="float f4" data-s="25" viewBox="0 0 100 100"><use href="#cube"/></svg>
+      <svg class="float" data-s="15" style="left:2%;top:42%;width:34px" viewBox="0 0 40 70"><use href="#bolt"/></svg>
+      <svg class="float" data-s="-15" style="right:4%;top:50%;width:30px;transform:scaleX(-1)" viewBox="0 0 40 70"><use href="#bolt"/></svg>
+      <div class="badge"><div>FERIA<b>29</b>OCT</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div>
+    <span>FRISTAZO</span><span>SODAS GRANIZADAS</span><span>MARACUYÁ Y LULO</span><span>SOLO $5.000</span><span>VEN Y PRUÉBALA</span>
+    <span>FRISTAZO</span><span>SODAS GRANIZADAS</span><span>MARACUYÁ Y LULO</span><span>SOLO $5.000</span><span>VEN Y PRUÉBALA</span>
+  </div>
+</div>
+
+<!-- ========== FERIA ========== -->
+<section class="feria" id="feria">
+  <div class="wrap rv">
+    <h2>¡Estás invitado!</h2>
+    <span class="brush l">Feria Empresarial</span><br>
+    <span class="brush c">29 de octubre</span><br>
+    <span class="place">📍 Colegio Nuestra Señora del Rosario · <b>Stand 6</b></span>
+    <p class="t">Ven a nuestro stand, descubre el sabor refrescante de <b>FRISTAZO</b> y disfruta una soda granizada llena de sabor, color y diversión. ¡Te esperamos para que la pruebes!</p>
+    <div class="count" id="count" aria-live="polite"></div>
+    <a href="#contacto" class="btn btn-lime">¡Ven y pruébala!</a>
+  </div>
+</section>
+
+<!-- ========== SABORES ========== -->
+<section id="sabores">
+  <div class="wrap">
+    <div class="title rv"><h2>Refresca <em>tu día</em></h2><p>Sabor que te energiza: Fristazo es pura fruta.</p></div>
+    <div class="product">
+      <div class="poster rv">
+        <img src="producto.jpg" alt="Fristazo sabor maracuyá y lulo, con trozos de mango, bolitas explosivas y borde escarchado">
+        <div class="price"><small>SOLO</small>$5.000</div>
+      </div>
+      <div class="info rv">
+        <span class="tag">SABOR</span>
+        <h3>Maracuyá y Lulo</h3>
+        <p class="boom">Maracuyá + Lulo = una explosión de sabor</p>
+        <ul class="ing">
+          <li><span>🍈</span><div><b>Maracuyá y lulo</b>Fruta real</div></li>
+          <li><span>🥭</span><div><b>Trozos de mango</b>Fruta natural</div></li>
+          <li><span>🫧</span><div><b>Bolitas explosivas</b>Sabor fruta</div></li>
+          <li><span>🥤</span><div><b>Pitillo y sombrillitas</b>Para lucirla</div></li>
+          <li><span>🌶️</span><div><b>Borde escarchado</b>Con chamoy y tajín</div></li>
+          <li><span>🌿</span><div><b>Ingredientes 100% naturales</b>Pura fruta</div></li>
+        </ul>
+        <div class="chips">
+          <span>Sin azúcar añadida</span><span>Con electrolitos naturales</span><span>100% natural</span><span>Súper refrescante</span>
+        </div>
+        <a href="#contacto" class="btn btn-lime">¡Quiero la mía!</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VASO 3D ========== -->
+<section class="viewer" id="vaso3d">
+  <div class="wrap">
+    <div class="title rv"><h2>Gira tu <em>Fristazo</em></h2><p>Arrastra el vaso para verlo por todos lados.</p></div>
+    <div class="viewer-box rv">
+      <canvas id="cup3d" aria-label="Vaso Fristazo en 3D, arrastra para girarlo"></canvas>
+      <div class="hint" id="hint">👆 Arrastra para girar</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CÓMO ES ========== -->
+<section class="steps" id="como">
+  <div class="wrap">
+    <div class="title rv"><h2>Así se arma <em>tu vaso</em></h2></div>
+    <div class="steprow">
+      <div class="step rv"><span class="em">🧊</span><h3>Hielo granizado</h3><p>Hielo fino y súper frío de base.</p></div>
+      <div class="step rv"><span class="em">🥤</span><h3>Fruta y soda</h3><p>Maracuyá y lulo, fruta real.</p></div>
+      <div class="step rv"><span class="em">🌶️</span><h3>Borde escarchado</h3><p>Chamoy y tajín para el golpe.</p></div>
+      <div class="step rv"><span class="em">🫧</span><h3>Bolitas explosivas</h3><p>Trozos de mango, pitillo y sombrillita.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NOSOTROS ========== -->
+<section class="about" id="nosotros">
+  <div class="wrap">
+    <div class="rv">
+      <h2>Frío con actitud</h2>
+      <p>Fristazo nace para refrescar tus días con sodas granizadas que mezclan sabor, color y diversión en cada vaso.</p>
+      <p>Somos un emprendimiento que cuida cada detalle: ingredientes frescos, presentación llamativa y una experiencia que quieres repetir.</p>
+    </div>
+    <div class="stats rv">
+      <div><b>$5.000</b>Tu Fristazo</div>
+      <div><b>100%</b>Natural</div>
+      <div><b>0</b>Azúcar añadida</div>
+      <div><b>∞</b>Diversión</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACTO ========== -->
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="title rv"><h2>Pide el <em>tuyo</em></h2><p>Pedidos, eventos y alianzas. Tu mensaje se envía por WhatsApp.</p></div>
+    <div class="cgrid">
+      <a class="ccard rv" href="https://wa.me/573147520475" target="_blank" rel="noopener"><span>💬</span><b>WhatsApp</b>+57 314 752 0475</a>
+      <a class="ccard rv" href="https://www.instagram.com/fristazo-s.a.s_" target="_blank" rel="noopener"><span>📸</span><b>Instagram</b>@fristazo-s.a.s_</a>
+      <a class="ccard rv" href="#feria"><span>📍</span><b>Encuéntranos</b>Colegio Nuestra Señora del Rosario · Stand 6</a>
+    </div>
+    <form id="form" class="rv">
+      <input name="nombre" placeholder="Tu nombre" required>
+      <input name="contacto" placeholder="Correo o WhatsApp" required>
+      <textarea name="mensaje" rows="4" placeholder="¿Qué te gustaría pedir o preguntar?" required></textarea>
+      <button class="btn btn-cyan" type="submit">Enviar mensaje</button>
+      <p id="msg"></p>
+    </form>
+  </div>
+</section>
+
+<footer><b>FRISTAZO</b> · Sodas Granizadas<br><span style="letter-spacing:.1em">WhatsApp +57 314 752 0475 · Stand 6, Colegio Nuestra Señora del Rosario</span></footer>
+<div class="mascot" id="mascot" aria-label="Mascota Fristazo"><div class="bear"></div><div class="say" id="say"></div></div>
+<button class="snd" id="snd" type="button" aria-label="Activar o silenciar sonido" title="Sonido">🔊</button>
+<a class="wa" href="https://wa.me/573147520475?text=Hola%20Fristazo%2C%20quiero%20pedir%20una%20soda%20granizada" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">💬</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// Hielo y gotas flotando de fondo
+(function(){
+  const fx=document.getElementById('fx');
+  if(!window.THREE) for(let i=0;i<16;i++){
+    const s=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    s.setAttribute('viewBox','0 0 100 100'); s.classList.add('ice');
+    const u=document.createElementNS('http://www.w3.org/2000/svg','use'); u.setAttribute('href','#cube'); s.appendChild(u);
+    const w=24+Math.random()*60; s.style.width=w+'px'; s.style.height=w+'px';
+    s.style.left=Math.random()*100+'%';
+    s.style.animationDuration=(18+Math.random()*26)+'s';
+    s.style.animationDelay=(-Math.random()*40)+'s';
+    s.style.opacity=.25+Math.random()*.35;
+    fx.appendChild(s);
+  }
+  for(let i=0;i<14;i++){
+    const d=document.createElement('i'); d.className='drop';
+    d.style.left=Math.random()*100+'%';
+    d.style.animationDuration=(10+Math.random()*14)+'s';
+    d.style.animationDelay=(-Math.random()*20)+'s';
+    fx.appendChild(d);
+  }
+})();
+
+// Parallax con el mouse en el hero
+(function(){
+  const st=document.getElementById('stage'); if(!st) return;
+  const items=st.querySelectorAll('.float');
+  document.addEventListener('mousemove',e=>{
+    const x=(e.clientX/innerWidth-.5), y=(e.clientY/innerHeight-.5);
+    items.forEach(el=>{
+      const s=+el.dataset.s||20;
+      el.style.transform=(el.style.transform.includes('scaleX')?'scaleX(-1) ':'')+`translate(${x*s}px,${y*s}px)`;
+    });
+  });
+})();
+
+// Logo del hero inclinado en 3D con el mouse
+(function(){
+  const lg=document.getElementById('logo3d');
+  if(!lg||matchMedia('(hover:none)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  document.addEventListener('mousemove',e=>{
+    const x=e.clientX/innerWidth-.5, y=e.clientY/innerHeight-.5;
+    lg.style.transform=`perspective(900px) rotateY(${x*26}deg) rotateX(${-y*22}deg)`;
+  });
+})();
+
+// Inclinación 3D en tarjetas
+(function(){
+  if(matchMedia('(hover:none)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  document.querySelectorAll('.ing li,.stats div,.ccard,.step,.count div,.poster').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{el.style.transition='transform .1s ease-out';el.style.transitionDelay='0s'});
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      el.style.transform=`perspective(700px) rotateX(${-y*18}deg) rotateY(${x*18}deg) translateZ(14px) scale(1.05)`;
+    });
+    el.addEventListener('mouseleave',()=>{el.style.transition='';el.style.transform='';});
+  });
+})();
+
+// Burbujas al hacer clic
+document.addEventListener('click',e=>{
+  for(let i=0;i<12;i++){
+    const p=document.createElement('i'); p.className='pop'+(i%3?'':' l');
+    const a=Math.random()*Math.PI*2, d=40+Math.random()*80;
+    p.style.left=e.clientX+'px'; p.style.top=e.clientY+'px';
+    p.style.setProperty('--dx',Math.cos(a)*d+'px'); p.style.setProperty('--dy',Math.sin(a)*d+'px');
+    document.body.appendChild(p); setTimeout(()=>p.remove(),900);
+  }
+});
+
+// Barra de progreso del scroll
+(function(){
+  const bar=document.getElementById('bar');
+  const f=()=>{const m=document.documentElement.scrollHeight-innerHeight;bar.style.width=(m>0?scrollY/m*100:0)+'%'};
+  addEventListener('scroll',f,{passive:true}); f();
+})();
+
+// Escena 3D: cristales de hielo (WebGL con Three.js)
+(function(){
+  if(!window.THREE) return;
+  const cv=document.getElementById('gl');
+  let renderer;
+  try{ renderer=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true}); }
+  catch(err){ cv.remove(); return; } // sin WebGL: el resto de la página sigue funcionando
+  renderer.setPixelRatio(Math.min(devicePixelRatio,1.8));
+  const scene=new THREE.Scene();
+  const cam=new THREE.PerspectiveCamera(50,1,.1,100); cam.position.z=14;
+  scene.add(new THREE.AmbientLight(0x6fa8ff,.9));
+  const l1=new THREE.PointLight(0x1fb6ff,2.6,70); l1.position.set(-8,6,8); scene.add(l1);
+  const l2=new THREE.PointLight(0xc8ff1f,2.2,70); l2.position.set(8,-4,6); scene.add(l2);
+  const l3=new THREE.DirectionalLight(0xffffff,.9); l3.position.set(0,5,10); scene.add(l3);
+
+  const geos=[new THREE.IcosahedronGeometry(1,0),new THREE.OctahedronGeometry(1.1,0),new THREE.BoxGeometry(1.3,1.3,1.3),new THREE.DodecahedronGeometry(1,0)];
+  const mat=new THREE.MeshPhysicalMaterial({color:0x9fe0ff,metalness:.15,roughness:.08,transparent:true,opacity:.5,flatShading:true,clearcoat:1,clearcoatRoughness:.1,emissive:0x0a4a8a,emissiveIntensity:.4});
+  const edgeMat=new THREE.LineBasicMaterial({color:0xffffff,transparent:true,opacity:.75});
+
+  function size(){renderer.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();}
+  size(); addEventListener('resize',size);
+  const aspect=innerWidth/innerHeight, spreadX=Math.max(7,6.2*aspect*1.1);
+  const DEPTH=46, gems=[];
+  const count=innerWidth<700?18:30;
+  for(let i=0;i<count;i++){
+    const g=geos[i%geos.length];
+    const m=new THREE.Mesh(g,mat);
+    m.add(new THREE.LineSegments(new THREE.EdgesGeometry(g),edgeMat));
+    const near=i<count*.4;
+    m.position.set((Math.random()-.5)*2*spreadX, near?(Math.random()-.5)*12:-Math.random()*DEPTH+4, -7+Math.random()*12);
+    const s=.35+Math.random()*1.1; m.scale.setScalar(s);
+    m.rotation.set(Math.random()*6,Math.random()*6,0);
+    m.userData={rx:(Math.random()-.5)*.012,ry:(Math.random()-.5)*.016+.004,ph:Math.random()*6,by:m.position.y,amp:.15+Math.random()*.35};
+    scene.add(m); gems.push(m);
+  }
+
+  let mx=0,my=0,camY=0,vel=0,lastS=scrollY,t=0;
+  addEventListener('mousemove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+  const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function frame(){
+    if(!document.hidden){
+      t+=.012;
+      const m=document.documentElement.scrollHeight-innerHeight, f=m>0?scrollY/m:0;
+      vel+=((Math.abs(scrollY-lastS))-vel)*.1; lastS=scrollY;
+      camY+=((-f*DEPTH)-camY)*.07;
+      cam.position.y=camY+(-my*1.6); cam.position.x+=((mx*2.2)-cam.position.x)*.05;
+      cam.lookAt(cam.position.x*.3,camY,0);
+      l1.position.y=camY+6; l2.position.y=camY-4;
+      const boost=1+vel*.08;
+      gems.forEach(g=>{const u=g.userData;
+        g.rotation.x+=u.rx*boost; g.rotation.y+=u.ry*boost;
+        g.position.y=u.by+Math.sin(t+u.ph)*u.amp;
+      });
+    }
+    renderer.render(scene,cam);
+    if(!still) requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+// Aparecer al hacer scroll
+(function(){
+  if(!('IntersectionObserver' in window)){ document.querySelectorAll('.rv').forEach(el=>el.classList.add('in')); return; }
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){
+      const sib=[...e.target.parentElement.children].indexOf(e.target);
+      e.target.style.transitionDelay=(sib*0.1)+'s';
+      e.target.classList.add('in'); io.unobserve(e.target);
+      setTimeout(()=>{e.target.style.transitionDelay='0s'},1500);
+    }
+  }),{threshold:.15});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+})();
+
+// Cuenta regresiva a la feria (29 de octubre)
+(function(){
+  const box=document.getElementById('count');
+  const target=new Date(new Date().getFullYear(),9,29,8,0,0);
+  function tick(){
+    const d=target-new Date();
+    if(d<=0){box.innerHTML='<div><b>¡HOY!</b><small>29 de octubre</small></div>';return;}
+    const v=[[Math.floor(d/864e5),'Días'],[Math.floor(d%864e5/36e5),'Horas'],[Math.floor(d%36e5/6e4),'Min'],[Math.floor(d%6e4/1e3),'Seg']];
+    box.innerHTML=v.map(x=>`<div><b>${x[0]}</b><small>${x[1]}</small></div>`).join('');
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target;
+  const txt=`Hola Fristazo, soy ${f.nombre.value} (${f.contacto.value}).\n${f.mensaje.value}`;
+  window.open('https://wa.me/573147520475?text='+encodeURIComponent(txt),'_blank');
+  document.getElementById('msg').textContent='¡Gracias! Se abrió WhatsApp para enviar tu mensaje.';
+  f.reset();
+});
+</script>
+
+<script>
+/* ===== Sonido: splash sintetizado, con botón para silenciar ===== */
+const Snd=(function(){
+  let ctx=null, on=true;
+  try{ on=localStorage.getItem('fristazo-snd')!=='off' }catch(e){}
+  const btn=document.getElementById('snd');
+  const paint=()=>{btn.textContent=on?'🔊':'🔇'};
+  paint();
+  function ac(){ if(!ctx){ const C=window.AudioContext||window.webkitAudioContext; if(!C) return null; ctx=new C(); } if(ctx.state==='suspended') ctx.resume(); return ctx; }
+  function splash(){
+    if(!on) return; const a=ac(); if(!a) return; const t=a.currentTime;
+    // chorro de agua: ruido filtrado
+    const len=Math.floor(a.sampleRate*.4), buf=a.createBuffer(1,len,a.sampleRate), d=buf.getChannelData(0);
+    for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*(1-i/len);
+    const n=a.createBufferSource(); n.buffer=buf;
+    const f=a.createBiquadFilter(); f.type='bandpass'; f.Q.value=1.2;
+    f.frequency.setValueAtTime(3200,t); f.frequency.exponentialRampToValueAtTime(700,t+.35);
+    const g=a.createGain(); g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(.16,t+.02); g.gain.exponentialRampToValueAtTime(.0001,t+.38);
+    n.connect(f); f.connect(g); g.connect(a.destination); n.start(t);
+    // burbujitas
+    for(let i=0;i<3;i++){
+      const o=a.createOscillator(), og=a.createGain(), s=t+.04+i*.07, fr=500+Math.random()*700;
+      o.type='sine'; o.frequency.setValueAtTime(fr,s); o.frequency.exponentialRampToValueAtTime(fr*1.9,s+.09);
+      og.gain.setValueAtTime(.0001,s); og.gain.exponentialRampToValueAtTime(.07,s+.015); og.gain.exponentialRampToValueAtTime(.0001,s+.12);
+      o.connect(og); og.connect(a.destination); o.start(s); o.stop(s+.14);
+    }
+  }
+  btn.addEventListener('click',e=>{
+    e.stopPropagation(); on=!on; paint();
+    try{localStorage.setItem('fristazo-snd',on?'on':'off')}catch(err){}
+    if(on) splash();
+  });
+  document.addEventListener('click',e=>{ if(e.target.closest('#snd')) return; splash(); });
+  return {splash};
+})();
+
+/* ===== Mascota: te mira, habla y saluda ===== */
+(function(){
+  const m=document.getElementById('mascot'), bear=m.querySelector('.bear'), say=document.getElementById('say');
+  const frases=['¡Ven y pruébala! 🧊','Solo $5.000 😎','Maracuyá y lulo, ¡explosión de sabor!','Stand 6 · Feria 29 de octubre','¡Tengo sed! ¿Y tú?','Sin azúcar añadida 🍃','Gíralo en 3D 👇'];
+  let i=0, timer;
+  function hablar(txt){
+    say.textContent=txt; say.classList.add('on');
+    clearTimeout(timer); timer=setTimeout(()=>say.classList.remove('on'),3400);
+  }
+  function ciclo(){ hablar(frases[i++%frases.length]); }
+  function start(){
+    m.classList.add('show');
+    setTimeout(()=>{ hablar('¡Hola! Soy el oso Fristazo 🐻‍❄️'); setInterval(ciclo,7000); },900);
+  }
+  document.addEventListener('fristazo:ready',start);
+  setTimeout(()=>{ if(!m.classList.contains('show')) start(); },7500); // por si el evento no llega
+  m.addEventListener('click',e=>{
+    m.classList.remove('wave'); void m.offsetWidth; m.classList.add('wave');
+    hablar(['¡Splash! 💦','¡Pídela ya por WhatsApp!','¡Te esperamos en el stand 6!'][Math.floor(Math.random()*3)]);
+  });
+  if(!matchMedia('(hover:none)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches){
+    document.addEventListener('mousemove',e=>{
+      const r=m.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
+      const dx=Math.max(-1,Math.min(1,(e.clientX-cx)/400)), dy=Math.max(-1,Math.min(1,(e.clientY-cy)/400));
+      bear.style.transform=`translate(${dx*7}px,${dy*7}px) perspective(300px) rotateY(${dx*28}deg) rotateX(${-dy*28}deg)`;
+    });
+  }
+})();
+
+/* ===== Vaso 3D arrastrable (Three.js) ===== */
+(function(){
+  const sec=document.getElementById('vaso3d'), cv=document.getElementById('cup3d'), hint=document.getElementById('hint');
+  if(!window.THREE){ sec.style.display='none'; return; }
+  const T=THREE;
+  let renderer;
+  try{ renderer=new T.WebGLRenderer({canvas:cv,alpha:true,antialias:true}); }
+  catch(err){ sec.style.display='none'; return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const scene=new T.Scene();
+  const cam=new T.PerspectiveCamera(34,1,.1,100); cam.position.set(0,1.4,15.5); cam.lookAt(0,.7,0);
+  scene.add(new T.AmbientLight(0xaaccff,.95));
+  const p1=new T.PointLight(0x1fb6ff,3,60); p1.position.set(-8,5,8); scene.add(p1);
+  const p2=new T.PointLight(0xc8ff1f,2.6,60); p2.position.set(8,2,6); scene.add(p2);
+  const d1=new T.DirectionalLight(0xffffff,1); d1.position.set(2,8,8); scene.add(d1);
+
+  const g=new T.Group(); scene.add(g);
+  const H=5.2, RT=2, RB=1.45;
+  const rAt=y=>RB+(RT-RB)*((y+H/2)/H);
+
+  // Líquido + vaso transparente
+  const liquid=new T.Mesh(new T.CylinderGeometry(RT-.06,RB-.05,H-.4,48),new T.MeshStandardMaterial({color:0xffb21e,emissive:0x8a4a00,emissiveIntensity:.4,roughness:.55}));
+  liquid.position.y=-.2; g.add(liquid);
+  const glass=new T.Mesh(new T.CylinderGeometry(RT,RB,H,48,1,true),new T.MeshPhysicalMaterial({color:0xffffff,transparent:true,opacity:.2,roughness:.05,metalness:0,clearcoat:1,side:T.DoubleSide,depthWrite:false}));
+  glass.renderOrder=5; g.add(glass);
+  const base=new T.Mesh(new T.CylinderGeometry(RB,RB-.05,.12,48),new T.MeshPhysicalMaterial({color:0xcfeaff,transparent:true,opacity:.5}));
+  base.position.y=-H/2; g.add(base);
+
+  // Granizado (domo con relieve)
+  const dg=new T.IcosahedronGeometry(1,3), pos=dg.attributes.position;
+  for(let i=0;i<pos.count;i++){ const k=1+(Math.random()-.5)*.14; pos.setXYZ(i,pos.getX(i)*k,pos.getY(i)*k,pos.getZ(i)*k); }
+  dg.computeVertexNormals();
+  const dome=new T.Mesh(dg,new T.MeshStandardMaterial({color:0xffc43d,emissive:0x8a4a00,emissiveIntensity:.3,roughness:.8,flatShading:true}));
+  const DR=RT-.1, DY=H/2-.35;
+  dome.scale.set(DR,.8,DR); dome.position.y=DY; g.add(dome);
+
+  // Borde escarchado (chamoy y tajín)
+  const rc=document.createElement('canvas'); rc.width=512; rc.height=64;
+  const rx=rc.getContext('2d'); rx.fillStyle='#8a3b12'; rx.fillRect(0,0,512,64);
+  for(let i=0;i<700;i++){ rx.fillStyle=['#c0301c','#3b1405','#e5742b','#f0b35a'][i%4]; rx.fillRect(Math.random()*512,Math.random()*64,2+Math.random()*3,2+Math.random()*3); }
+  const rim=new T.Mesh(new T.CylinderGeometry(RT+.06,RT+.06,.5,48,1,true),new T.MeshStandardMaterial({map:new T.CanvasTexture(rc),roughness:1,side:T.DoubleSide}));
+  rim.position.y=H/2-.22; g.add(rim);
+  const lip=new T.Mesh(new T.TorusGeometry(RT+.03,.1,10,48),new T.MeshStandardMaterial({color:0xa6481a,roughness:1}));
+  lip.rotation.x=Math.PI/2; lip.position.y=H/2+.02; g.add(lip);
+
+  // Bolitas explosivas y mango
+  const cols=[0xf6a623,0xd7263d,0x2fa84f,0x1d1d1d,0xffd24a,0xff7a1a];
+  for(let i=0;i<20;i++){
+    const a=Math.random()*Math.PI*2, r=Math.sqrt(Math.random())*(DR-.25);
+    const y=DY+.8*Math.sqrt(Math.max(0,1-(r/DR)*(r/DR)))-.02;
+    const b=new T.Mesh(new T.SphereGeometry(.2+Math.random()*.06,16,12),new T.MeshPhysicalMaterial({color:cols[i%cols.length],roughness:.15,clearcoat:1,transmission:0}));
+    b.position.set(Math.cos(a)*r,y,Math.sin(a)*r); g.add(b);
+  }
+  for(let i=0;i<6;i++){
+    const a=i*1.05, r=.35+Math.random()*.8;
+    const c=new T.Mesh(new T.BoxGeometry(.38,.38,.38),new T.MeshStandardMaterial({color:0xffcf33,roughness:.4,emissive:0x7a5000,emissiveIntensity:.25}));
+    c.position.set(Math.cos(a)*r,DY+.72-r*.2,Math.sin(a)*r); c.rotation.set(Math.random()*2,Math.random()*2,Math.random()*2); g.add(c);
+  }
+
+  // Pitillo y sombrilla
+  const straw=new T.Mesh(new T.CylinderGeometry(.12,.12,5.4,16),new T.MeshStandardMaterial({color:0xc8ff1f,emissive:0x5a7a00,emissiveIntensity:.5,roughness:.3}));
+  straw.position.set(.55,3.4,.15); straw.rotation.z=-.16; g.add(straw);
+  const umb=new T.Group();
+  const stick=new T.Mesh(new T.CylinderGeometry(.03,.03,1.8,8),new T.MeshStandardMaterial({color:0xf3e3b5}));
+  stick.position.y=.2; umb.add(stick);
+  const top=new T.Mesh(new T.ConeGeometry(1.1,.6,16,1,true),new T.MeshStandardMaterial({color:0x4fe0d0,side:T.DoubleSide,roughness:.5}));
+  top.position.y=1.1; umb.add(top);
+  const ribs=new T.LineSegments(new T.EdgesGeometry(new T.ConeGeometry(1.1,.6,8,1,true)),new T.LineBasicMaterial({color:0xffffff}));
+  ribs.position.y=1.1; umb.add(ribs);
+  umb.position.set(-.9,DY+.3,.3); umb.rotation.z=.32; g.add(umb);
+
+  // Etiqueta FRISTAZO
+  const lc=document.createElement('canvas'); lc.width=768; lc.height=512;
+  const lx=lc.getContext('2d'), ltex=new T.CanvasTexture(lc);
+  function pintar(){
+    lx.clearRect(0,0,768,512); lx.textAlign='center'; lx.lineJoin='round';
+    lx.font='170px Bangers, Impact, sans-serif'; lx.lineWidth=20; lx.strokeStyle='#0a1d5a'; lx.strokeText('FRISTAZO',384,250);
+    lx.fillStyle='#c8ff1f'; lx.fillText('FRISTAZO',384,250);
+    lx.font='72px Bangers, Impact, sans-serif'; lx.lineWidth=12; lx.strokeText('SODAS GRANIZADAS',384,335);
+    lx.fillStyle='#ffffff'; lx.fillText('SODAS GRANIZADAS',384,335);
+    lx.strokeStyle='#1fb6ff'; lx.lineWidth=10; lx.beginPath(); lx.moveTo(150,370); lx.lineTo(620,360); lx.stroke();
+    ltex.needsUpdate=true;
+  }
+  pintar(); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(pintar);
+  const label=new T.Mesh(new T.CylinderGeometry(rAt(.8)+.03,rAt(-1.4)+.03,2.2,40,1,true,-1.05,2.1),new T.MeshBasicMaterial({map:ltex,transparent:true,depthWrite:false}));
+  label.position.y=-.3; label.renderOrder=4; g.add(label);
+
+  // Aro de agua y hielos orbitando
+  const ring=new T.Mesh(new T.RingGeometry(2.4,3.3,64),new T.MeshBasicMaterial({color:0x1fb6ff,transparent:true,opacity:.45,side:T.DoubleSide,blending:T.AdditiveBlending,depthWrite:false}));
+  ring.rotation.x=-Math.PI/2; ring.position.y=-H/2-.08; g.add(ring);
+  const gemMat=new T.MeshPhysicalMaterial({color:0x9fe0ff,transparent:true,opacity:.6,roughness:.08,flatShading:true,emissive:0x0a4a8a,emissiveIntensity:.5});
+  const orbit=new T.Group(); scene.add(orbit);
+  const gemGeo=new T.IcosahedronGeometry(.45,0), eg=new T.EdgesGeometry(gemGeo), em=new T.LineBasicMaterial({color:0xffffff});
+  const gems=[];
+  for(let i=0;i<7;i++){
+    const m=new T.Mesh(gemGeo,gemMat); m.add(new T.LineSegments(eg,em));
+    m.userData={a:i/7*Math.PI*2,r:3.6+Math.random()*.8,y:-1.5+Math.random()*4.5,s:.5+Math.random()*.4};
+    orbit.add(m); gems.push(m);
+  }
+  const bub=[], bmat=new T.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.5});
+  for(let i=0;i<36;i++){
+    const b=new T.Mesh(new T.SphereGeometry(.05+Math.random()*.1,8,8),bmat);
+    b.userData={x:(Math.random()-.5)*7,z:(Math.random()-.5)*4,sp:.01+Math.random()*.02,y:-3+Math.random()*8};
+    scene.add(b); bub.push(b);
+  }
+
+  // Interacción: arrastrar para girar
+  let rotY=-.5, rotX=.12, vY=.007, drag=false, lx0=0, ly0=0, vis=false, t=0;
+  cv.addEventListener('pointerdown',e=>{drag=true;lx0=e.clientX;ly0=e.clientY;cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing';hint.classList.add('off')});
+  cv.addEventListener('pointermove',e=>{ if(!drag) return;
+    const dx=e.clientX-lx0, dy=e.clientY-ly0; lx0=e.clientX; ly0=e.clientY;
+    vY=dx*.012; rotY+=dx*.012; rotX=Math.max(-.5,Math.min(.6,rotX+dy*.006)); });
+  const up=()=>{drag=false;cv.style.cursor='grab'};
+  cv.addEventListener('pointerup',up); cv.addEventListener('pointercancel',up);
+
+  function size(){ const r=cv.getBoundingClientRect(); if(!r.width) return; renderer.setSize(r.width,r.height,false); cam.aspect=r.width/r.height; cam.updateProjectionMatrix(); }
+  new ResizeObserver(size).observe(cv); size();
+  new IntersectionObserver(es=>{vis=es[0].isIntersecting},{threshold:.05}).observe(cv);
+
+  const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  (function frame(){
+    requestAnimationFrame(frame);
+    if(!vis) return;
+    t+=.016;
+    if(!drag){ vY+=((still?0:.007)-vY)*.04; rotY+=vY; }
+    g.rotation.y=rotY; g.rotation.x=rotX; g.position.y=Math.sin(t*1.3)*.15;
+    orbit.rotation.y+=.006;
+    gems.forEach(m=>{const u=m.userData; m.position.set(Math.cos(u.a)*u.r,u.y+Math.sin(t+u.a)*.3,Math.sin(u.a)*u.r); m.rotation.x+=.01*u.s; m.rotation.y+=.014*u.s;});
+    bub.forEach(b=>{const u=b.userData; u.y+=u.sp; if(u.y>4.5) u.y=-3.2; b.position.set(u.x+Math.sin(t*2+u.y)*.15,u.y,u.z);});
+    ring.scale.setScalar(1+Math.sin(t*2)*.06);
+    renderer.render(scene,cam);
+  })();
+})();
+</script>
+
+</body>
+</html>
